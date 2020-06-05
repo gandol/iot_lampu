@@ -35,6 +35,22 @@ class lampu extends Controller
             return response()->json($this->gagal(), 500);
         }
     }
+    public function update_lampu(Request $request, $id_user)
+    {
+        try {
+            DB::table('lamp_status')->where([
+                'userId' => $id_user
+            ])->update([
+                'status' => $request->status
+            ]);
+            $data       = [
+                'status' => 'sukses',
+            ];
+            return response()->json($data, 200);
+        } catch (\Throwable $th) {
+            return response()->json($this->gagal(), 500);
+        }
+    }
 
     public function gagal()
     {

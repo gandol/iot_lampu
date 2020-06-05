@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::get('/status_lamp/{id_user}','api\lampu@status_lampu');
+Route::post('/update_lamp/{id_user}','api\lampu@update_lampu');
